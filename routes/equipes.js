@@ -24,8 +24,8 @@ router.post('/', (req, res) => {
   }
 
   const statusValido = status || 'ativo';
-  if (statusValido !== 'ativo' && statusValido !== 'inactive' && statusValido !== 'inativo') {
-    // Garantir que é ativo ou inativo
+  if (statusValido !== 'ativo' && statusValido !== 'inativo') {
+    return res.status(400).json({ success: false, error: 'Status deve ser ativo ou inativo.' });
   }
 
   try {
